@@ -1,0 +1,53 @@
+{
+  "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "description",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x1054b481bbabef762281d3af7610a2d1770e52912d7338b2352f2f30ca5aea42",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "transactionIndex": 0,
+    "gasUsed": "102903",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xe50e6bed911d187a8b1f9498e851059d4382584e3df7bf8535670557b7385703",
+    "transactionHash": "0x1054b481bbabef762281d3af7610a2d1770e52912d7338b2352f2f30ca5aea42",
+    "logs": [],
+    "blockNumber": 1,
+    "cumulativeGasUsed": "102903",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "solcInputHash": "e097bb05153295b104a447f922368e74",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"description\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Infected.sol\":\"Infected\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Infected.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.9;\\n\\nimport \\\"./interfaces/IGame.sol\\\";\\n\\ncontract Infected is IGame {\\n    \\n    function description() external pure returns (string memory) {\\n        return \\\"testing\\\";\\n    }\\n\\n}\\n\",\"keccak256\":\"0x232b92bb2495e48d94d83a9279a4ea2f39e7dbba1786a10f91bfc92230a2373d\",\"license\":\"MIT\"},\"contracts/interfaces/IGame.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.9;\\n\\ninterface IGame {\\n\\n    function description() \\n        external \\n        pure\\n        returns (string memory);\\n}\\n\",\"keccak256\":\"0x3831c89ba2302a62e8ae1f5947498aaee1121a3982c3f3732366a2f29a0fdffe\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060e58061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80637284e41614602d575b600080fd5b604080518082018252600781526674657374696e6760c81b6020820152905160549190605d565b60405180910390f35b600060208083528351808285015260005b81811015608857858101830151858201604001528201606e565b818111156099576000604083870101525b50601f01601f191692909201604001939250505056fea2646970667358221220d87e4aabd9f76f6d84ca94eb7389cfca51c4a0e4bb062b3483ea80d97605d1b864736f6c63430008090033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80637284e41614602d575b600080fd5b604080518082018252600781526674657374696e6760c81b6020820152905160549190605d565b60405180910390f35b600060208083528351808285015260005b81811015608857858101830151858201604001528201606e565b818111156099576000604083870101525b50601f01601f191692909201604001939250505056fea2646970667358221220d87e4aabd9f76f6d84ca94eb7389cfca51c4a0e4bb062b3483ea80d97605d1b864736f6c63430008090033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}
