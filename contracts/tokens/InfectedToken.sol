@@ -8,7 +8,7 @@ contract InfectedToken is ERC1155, Ownable {
     uint256 public constant HOLY = 0;
     uint256 public constant INFECTED = 1;
 
-    constructor(address[] _holy, address[] _infected) public ERC1155("INFECTED GAME") {
+    constructor(address[] memory _holy, address[] memory _infected) ERC1155("INFECTED GAME") {
         _mint(address(this), HOLY, _holy.length, "");
         _mint(address(this), INFECTED, _infected.length, "");
     }
