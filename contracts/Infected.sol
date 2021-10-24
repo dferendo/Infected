@@ -2,21 +2,27 @@
 pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
+import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 
 import "./interfaces/IGame.sol";
 
-contract Infected is ERC1155, Ownable, IGame {
+contract Infected is ERC1155Supply, Ownable, IGame {
     uint256 public constant HOLY = 0;
     uint256 public constant INFECTED = 1;
 
     uint256 public constant NUMBER_OF_FAILED_ATTACKS_ALLOWED = 5;
+
+    string private constant DESCRIPTION = "Infected"
+    "TODO: Write a description";
 
     mapping(address => uint8) failedKillCount;
 
     // You should allow some grace period where players can set up addresses etc.
     uint256 public gameBlockStartTime;
     uint256 public gameBlockEndTime;
+
+    address[] public holyAddresses;
+    address[] public infectedAddresses;
 
     modifier gameIsLive {
         require(block.number >= gameBlockStartTime && block.number <= gameBlockEndTime);
@@ -29,6 +35,9 @@ contract Infected is ERC1155, Ownable, IGame {
         gameBlockStartTime = _gameBlockStartTime;
         gameBlockEndTime = _gameBlockEndTime;
 
+        holyAddresses = _holy;
+        infectedAddresses = _infected;
+
         _mint(msg.sender, HOLY, _holy.length, "");
         _mint(msg.sender, INFECTED, _infected.length, "");
 
@@ -39,10 +48,6 @@ contract Infected is ERC1155, Ownable, IGame {
         for (uint i = 0; i < _infected.length; i++) {
             safeTransferFrom(msg.sender, _infected[i], INFECTED, 1, "");
         }
-    }
-
-    function description() external pure returns (string memory) {
-        return "testing";
     }
 
     function infect(address victim) external gameIsLive returns (bool) {
@@ -62,4 +67,17 @@ contract Infected is ERC1155, Ownable, IGame {
         return false;
     }
 
+    function description() external pure returns (string memory) {
+        return DESCRIPTION;
+    }
+
+    function GetWinners() external view returns (address[] memory) {
+        require(block.number > gameBlockEndTime, "Infected: Game is not yet over!");
+
+        if (totalSupply(HOLY) > 0){
+            return holyAddresses;
+        } 
+
+        return infectedAddresses;
+    }
 }

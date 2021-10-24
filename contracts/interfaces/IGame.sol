@@ -7,4 +7,9 @@ interface IGame {
         external 
         pure
         returns (string memory);
+
+    function GetWinners()
+        external
+        view
+        returns (address[] memory);
 }
