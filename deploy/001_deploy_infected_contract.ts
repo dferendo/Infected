@@ -1,5 +1,8 @@
 import {HardhatRuntimeEnvironment} from 'hardhat/types';
 import {DeployFunction} from 'hardhat-deploy/types';
+import holyAddresses from '../config/holyAddresses.json';
+import infectedAddresses from '../config/infectedAddresses.json';
+import gameConfigs from '../config/gameConfigs.json';
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const {deployments, getNamedAccounts} = hre;
@@ -9,7 +12,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   await deploy('Infected', {
     from: deployer,
-    args: [],
+    args: [gameConfigs.GameStartingBlockTime, gameConfigs.GameEndingBlockTime, holyAddresses, infectedAddresses],
     log: true,
     gasLimit: 4000000
   });

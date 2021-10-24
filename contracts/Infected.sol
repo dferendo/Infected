@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 
 import "./interfaces/IGame.sol";
 
-contract InfectedToken is ERC1155, Ownable, IGame {
+contract Infected is ERC1155, Ownable, IGame {
     uint256 public constant HOLY = 0;
     uint256 public constant INFECTED = 1;
 
@@ -58,7 +58,7 @@ contract InfectedToken is ERC1155, Ownable, IGame {
         if (failedKillCount[msg.sender] >= NUMBER_OF_FAILED_ATTACKS_ALLOWED) {
             _burn(msg.sender, INFECTED, 1);
         }
-        
+
         return false;
     }
 
