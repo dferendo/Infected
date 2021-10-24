@@ -9,8 +9,16 @@ contract InfectedToken is ERC1155, Ownable {
     uint256 public constant INFECTED = 1;
 
     constructor(address[] memory _holy, address[] memory _infected) ERC1155("INFECTED GAME") {
-        _mint(address(this), HOLY, _holy.length, "");
-        _mint(address(this), INFECTED, _infected.length, "");
+        _mint(msg.sender, HOLY, _holy.length, "");
+        _mint(msg.sender, INFECTED, _infected.length, "");
+
+        for (uint i = 0; i < _holy.length; i++) {
+            safeTransferFrom(msg.sender, _holy[i], HOLY, 1, "");
+        }
+
+        for (uint i = 0; i < _infected.length; i++) {
+            safeTransferFrom(msg.sender, _infected[i], INFECTED, 1, "");
+        }
     }
 
 }
